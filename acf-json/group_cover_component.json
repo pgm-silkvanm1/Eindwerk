@@ -1,0 +1,105 @@
+{
+  "key": "group_cover_component",
+  "title": "Component: Cover",
+  "fields": [
+    {
+      "key": "group_cover_component_h-align",
+      "label": "H-align",
+      "name": "h-align",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_vertical-align",
+      "label": "Vertical-align",
+      "name": "vertical-align",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_text-align",
+      "label": "Text-align",
+      "name": "text-align",
+      "type": "button_group",
+      "choices": {
+        "left": "Left",
+        "center": "Center",
+        "right": "Right"
+      }
+    },
+    {
+      "key": "group_cover_component_cover-type",
+      "label": "Cover-type",
+      "name": "cover-type",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_background-image",
+      "label": "Background-image",
+      "name": "background-image",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_prefix",
+      "label": "Prefix",
+      "name": "prefix",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_title",
+      "label": "Title",
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_title-tag",
+      "label": "Title-tag",
+      "name": "title-tag",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_body",
+      "label": "Body",
+      "name": "body",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "toolbar": "simple",
+      "media_upload": 0,
+      "delay": 1
+    },
+    {
+      "key": "group_cover_component_buttons",
+      "label": "Buttons",
+      "name": "buttons"
+    },
+    {
+      "key": "group_cover_component_newsletter",
+      "label": "Newsletter",
+      "name": "newsletter",
+      "type": "true_false",
+      "ui": 1
+    },
+    {
+      "key": "group_cover_component_overlay-opacity",
+      "label": "Overlay-opacity",
+      "name": "overlay-opacity",
+      "type": "number"
+    },
+    {
+      "key": "group_cover_component_body-color",
+      "label": "Body-color",
+      "name": "body-color",
+      "type": "text"
+    },
+    {
+      "key": "group_cover_component_shop",
+      "label": "Shop",
+      "name": "shop",
+      "type": "true_false",
+      "ui": 1
+    }
+  ],
+  "label_placement": "left",
+  "active": false,
+  "acfe_categories": {
+    "component": "component"
+  }
+}

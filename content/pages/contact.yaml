@@ -1,0 +1,49 @@
+---
+title: Contact - SONOS
+mnvr_acf:
+  blocks:
+    - acf_fc_layout: cover
+      coverType: narrow
+      textAlign: center
+      hAlign: center
+      vAlign: center
+      title: Contact
+      overlayOpacity: 0.48
+      backgroundImage: '/img/mountains.jpg'
+    - acf_fc_layout: contact-form
+    - acf_fc_layout: map
+      markers:
+        - title: Grote Markt
+          location:
+            lat: 51.21433999159337
+            lng: 4.255818473706007
+    - acf_fc_layout: mediaText
+      align: center
+      textAlign: left
+      title: Lorem ipsum dolor sit
+      body:
+        "<p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed
+        do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+        Ut enim ad minim veniam.</p><p class='text-primary'><strong>Jane Doe</strong><br>+32
+        45 56 78 56<br><a href='#'>jane.doe@sonos.com</a></p>"
+      image:
+        url: '/img/mountains.jpg'
+      variant: primary
+      textColPadding: '4'
+      flip: true
+    - acf_fc_layout: mediaText
+      align: center
+      textAlign: left
+      title:
+        Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do
+        eiusmod tempor
+      body:
+        '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed
+        do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+        Ut enim ad minim veniam.</p>'
+      image:
+        url: '/img/mountains.jpg'
+      button:
+        title: Over ons
+        url: '/over-ons'
+      variant: primary

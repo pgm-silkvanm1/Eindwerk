@@ -1,0 +1,60 @@
+{
+  "key": "group_richtext_component",
+  "title": "Component: RichText",
+  "fields": [
+    {
+      "key": "group_richtext_component_variant",
+      "label": "Variant",
+      "name": "variant",
+      "type": "text"
+    },
+    {
+      "key": "group_richtext_component_body",
+      "label": "Body",
+      "name": "body",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "toolbar": "simple",
+      "media_upload": 0,
+      "delay": 1
+    },
+    {
+      "key": "group_richtext_component_dark",
+      "label": "Dark",
+      "name": "dark",
+      "type": "true_false",
+      "ui": 1
+    },
+    {
+      "key": "group_richtext_component_large-text",
+      "label": "Large-text",
+      "name": "large-text",
+      "type": "true_false",
+      "ui": 1
+    },
+    {
+      "key": "group_richtext_component_horizontal-align",
+      "label": "Horizontal-align",
+      "name": "horizontal-align",
+      "type": "text"
+    },
+    {
+      "key": "group_richtext_component_vertical-padding",
+      "label": "Vertical-padding",
+      "name": "vertical-padding",
+      "type": "text"
+    },
+    {
+      "key": "group_richtext_component_size",
+      "label": "Size",
+      "name": "size",
+      "type": "text"
+    }
+  ],
+  "label_placement": "left",
+  "active": false,
+  "acfe_categories": {
+    "component": "component"
+  },
+  "modified": 1628684314
+}

@@ -1,0 +1,46 @@
+@import './variables';
+@import './bootstrap';
+@import './bootstrap-overrides';
+@import './utils';
+@import './mixins';
+
+@import './animations/page';
+@import './animations/nav';
+@import './animations/drop';
+@import './animations/fade';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content {
+  flex-grow: 1;
+}
+
+:root {
+  // Set current container width as CSS variable to use in CSS properties.
+  --container-width: 0;
+
+  @each $breakpoint, $width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      --container-width: #{$width};
+    }
+  }
+}
+
+.vd-picker__input-icon {
+  display: none !important;
+}
+.vd-picker__input input::placeholder {
+  color: $dark !important;
+  opacity: 1 !important;
+}

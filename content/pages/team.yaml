@@ -1,0 +1,54 @@
+---
+title: Team - SONOS
+mnvr_acf:
+  blocks:
+    - acf_fc_layout: cover
+      coverType: narrow
+      textAlign: center
+      hAlign: center
+      vAlign: center
+      title: We zijn een team van doeners en denkers.
+      overlayOpacity: 0.3
+      backgroundImage: '/img/mountains.jpg'
+    - acf_fc_layout: team
+      items:
+        - name: John Doe
+          jobtitle: Centrum manager
+          image: '/img/mountains.jpg'
+        - name: Jane Doe
+          jobtitle: CEO
+          image: '/img/mountains.jpg'
+        - name: Robert Smith
+          jobtitle: Marketing
+          image: '/img/mountains.jpg'
+        - name: Mark Zuckerberg
+          jobtitle: IT Manager
+          image: '/img/mountains.jpg'
+        - name: Suzanne Bale
+          jobtitle: HR Manager
+          image: '/img/mountains.jpg'
+        - name: Charlotte Debussy
+          jobtitle: Graphic Designer
+          image: '/img/mountains.jpg'
+        - name: Sean Connery
+          jobtitle: Marketing
+          image: '/img/mountains.jpg'
+        - name: Timothy Dalton
+          jobtitle: HR Manager
+          image: '/img/mountains.jpg'
+        - name: Astrid Brian
+          jobtitle: Graphic Designer
+          image: '/img/mountains.jpg'
+        - name: Joe Biden
+          jobtitle: Marketing
+          image: '/img/mountains.jpg'
+    - acf_fc_layout: simple-text
+      center: true
+      title: Lorem ipsum dolor sit amet
+      body:
+        Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do eiusmod
+        tempor inter op incididunt ut labore et dolore magna aliqua que.  Ut enim ad minim
+        veniam.
+      button:
+        title: Word partner
+        url: '/contact'

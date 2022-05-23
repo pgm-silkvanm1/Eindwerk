@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39.126" height="52.161" viewBox="0 0 39.126 52.161">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_35" data-name="Rectangle 35" width="12.429" height="16.97" fill="none" stroke="#1d3b35" stroke-width="1.3"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_35-2" data-name="Rectangle 35" width="15.249" height="20.82" fill="none" stroke="#1d3b35" stroke-width="1.3"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_35-3" data-name="Rectangle 35" width="22.773" height="31.093" fill="none" stroke="#1d3b35" stroke-width="1.3"/>
+    </clipPath>
+  </defs>
+  <g id="Group_24" data-name="Group 24" transform="translate(-696.652 -7814)">
+    <g id="Group_12" data-name="Group 12" transform="translate(698.062 7849.191)">
+      <g id="Group_11" data-name="Group 11" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_82" data-name="Path 82" d="M6.6.5c0,4.861,2.064,8.485,5.962,8.485-3.9,0-5.962,3.577-5.962,8.117,0-4.541-1.972-8.117-6.1-8.117C4.628,8.985,6.554,5.316,6.6.5Z" transform="translate(-0.317 -0.316)" fill="none" stroke="#1d3b35" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+      </g>
+    </g>
+    <g id="Group_14" data-name="Group 14" transform="translate(696.652 7814)">
+      <g id="Group_11-2" data-name="Group 11" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+        <path id="Path_82-2" data-name="Path 82" d="M7.984.5c0,5.965,2.532,10.411,7.315,10.411-4.783,0-7.315,4.388-7.315,9.959,0-5.571-2.42-9.959-7.484-9.959C5.564,10.911,7.928,6.408,7.984.5Z" transform="translate(-0.275 -0.275)" fill="none" stroke="#1d3b35" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+      </g>
+    </g>
+    <g id="Group_13" data-name="Group 13" transform="translate(713.005 7824.41)">
+      <g id="Group_11-3" data-name="Group 11" transform="translate(0 0)" clip-path="url(#clip-path-3)">
+        <path id="Path_82-3" data-name="Path 82" d="M11.677.5c0,8.908,3.782,15.548,10.924,15.548-7.143,0-10.924,6.553-10.924,14.873C11.677,22.6,8.063,16.048.5,16.048,8.063,16.048,11.592,9.324,11.677.5Z" transform="translate(-0.164 -0.164)" fill="none" stroke="#1d3b35" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+      </g>
+    </g>
+  </g>
+</svg>

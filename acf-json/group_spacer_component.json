@@ -1,0 +1,16 @@
+{
+  "key": "group_spacer_component",
+  "title": "Component: Spacer",
+  "fields": [
+    {
+      "key": "group_spacer_component_spacer-height",
+      "label": "Spacer-height",
+      "name": "spacer-height"
+    }
+  ],
+  "label_placement": "left",
+  "active": false,
+  "acfe_categories": {
+    "component": "component"
+  }
+}

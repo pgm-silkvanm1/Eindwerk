@@ -1,0 +1,12 @@
+---
+items:
+  - title: Boek jouw event
+    url: '/#contact'
+  - title: Over Pironne
+    url: '/#about'
+  - title: Events by Pironne
+    url: '/#events'
+  - title: De locatie
+    url: '/#location'
+  - title: Meet the team
+    url: '/#team'

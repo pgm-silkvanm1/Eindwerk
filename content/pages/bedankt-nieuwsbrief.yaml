@@ -1,0 +1,12 @@
+---
+title: Bedankt Nieuwsbrief - SONOS
+mnvr_acf:
+  blocks:
+    - acf_fc_layout: cover
+      coverType: narrow
+      textAlign: center
+      hAlign: center
+      vAlign: center
+      title: Bedankt, je bent nu ingeschreven op onze nieuwsbrief.
+      overlayOpacity: 0.3
+      backgroundImage: '/img/cover-contact.jpg'

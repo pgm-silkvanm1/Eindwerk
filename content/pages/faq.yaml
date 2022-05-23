@@ -1,0 +1,62 @@
+---
+title: Veelgestelde vragen - SONOS
+mnvr_acf:
+  blocks:
+    - acf_fc_layout: cover
+      coverType: narrow
+      textAlign: center
+      hAlign: center
+      vAlign: center
+      title: Veelgestelde vragen
+      overlayOpacity: 0.48
+      image: '/img/mountains.jpg'
+    - acf_fc_layout: faq
+      items:
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+        - title: 'Hoe bereid ik een bezoek voor? '
+          body:
+            '<p>Lorem ipsum dolor sit amet, consectetur sitsic adipis cing elit, sed
+            do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que.
+            Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt
+            ut labore et.</p>'
+    - acf_fc_layout: simple-text
+      center: true
+      title: 'Geen antwoord gevonden op je vragen?<br>We lossen het graag op. '
+      button:
+        title: Contacteer ons
+        url: '/contact'

@@ -1,0 +1,12 @@
+---
+title: Bedankt Contact - SONOS
+mnvr_acf:
+  blocks:
+    - acf_fc_layout: cover
+      coverType: narrow
+      textAlign: center
+      hAlign: center
+      vAlign: center
+      title: Bedankt voor uw inzending. We nemen spoedig contact op met u.
+      overlayOpacity: 0.3
+      backgroundImage: '/img/mountains.jpg'
