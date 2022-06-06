@@ -1,17 +1,3 @@
-## Installing
-
-```bash
-# create project directory
-$ mkdir <projectname>
-$ cd <projectname>
-
-# clone repository
-$ git clone git@bitbucket.org:maneuver/<repo>.git .
-
-# work in dev branch
-$ git checkout dev
-```
-
 ## Nuxt: Build Setup
 
 https://nuxtjs.org/
