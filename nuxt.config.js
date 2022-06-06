@@ -156,6 +156,7 @@ export default {
               //   onAuthStateChangedAction: 'onAuthChangedAction',
             },
           },
+          firestore: true,
         },
       },
     ],

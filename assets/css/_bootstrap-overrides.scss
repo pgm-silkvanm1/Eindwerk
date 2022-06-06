@@ -11,7 +11,7 @@
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: start;
     //     @mixin button-variant(
 

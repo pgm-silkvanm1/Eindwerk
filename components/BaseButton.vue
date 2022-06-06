@@ -3,7 +3,7 @@
     :is="usedComponent.name"
     v-bind="usedComponent.props"
     v-on="$listeners"
-    class="btn"
+    class="btn-travel"
     :class="{ [`btn-${variant}`]: variant, [`btn-${size}`]: size }"
     @click="maybeOpenModal"
   >

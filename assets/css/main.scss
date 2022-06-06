@@ -16,6 +16,21 @@ body {
   overflow-x: hidden;
 }
 
+.btn-travel {
+  background-color: $secondary;
+  color: $black;
+  padding: 0.8rem 2.5rem;
+  border-radius: 25px;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+h2 {
+  font-weight: 400;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;
