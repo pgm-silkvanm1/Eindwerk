@@ -1,15 +1,16 @@
 <template>
-  <div class="teaseritem">
-    <div class="teaseritem__image d-flex justify-content-center">
+  <div class="teaser" @click.prevent="openLink">
+    <div class="teaser__image">
       <img :src="image" class="img-fluid" />
     </div>
-    <div class="teaseritem__title h2 my-2">
-      {{ title }}
+    <div class="teaser__title">
+      <div class="h3">
+        <BaseLink @click.native.prevent="" class="teaser__link h3" :to="link">{{
+          title
+        }}</BaseLink>
+      </div>
     </div>
-    <div
-      class="teaseritem__excerpt d-flex justify-content-center col-lg-9"
-      v-if="excerpt"
-    >
+    <div class="teaser__excerpt" v-if="excerpt">
       <p>{{ excerpt }}</p>
     </div>
   </div>
@@ -37,15 +38,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.teaseritem__title {
-  color: $primary;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: $small-font-size;
-}
-.teaseritem__excerpt {
-  color: $dark;
-  font-size: $h4-font-size;
-}
-</style>
+<style lang="scss" scoped></style>

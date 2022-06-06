@@ -12,10 +12,10 @@ $black: #000;
 $gray: #888;
 $light: #f2f1eb;
 $silver: #f5f6f8;
-$dark: #1d3b35;
+$dark: #5c5e16;
 $white: #fff;
-$primary: #db642a;
-$secondary: #c4e6d8;
+$primary: #97cf9f;
+$secondary: #e5cf84;
 
 $theme-colors: (
   'primary': $primary,
@@ -28,29 +28,14 @@ $theme-colors: (
   'white': white,
 );
 
-$font-family-base: 'Work Sans', sans-serif;
+$font-family-base: 'mokoko', serif;
 $font-weight-light: 400;
 $font-weight-normal: 400;
 $font-weight-medium: 500;
-$font-weight-bold: 500;
-$font-weight-extrabold: 800; // currently not included in Google Fonts package (see _app.jsx)
+$font-weight-bold: 700;
 $font-weight-base: $font-weight-light;
 
-$headings-font-family: 'termina', sans-serif;
-$headings-font-weight: 600;
-$font-size-base: 1rem;
-$small-font-size: 0.75rem;
-$large-font-size: 1.25rem;
-
-$body-color: #1d3b35;
-$body-bg: $light;
-
-$h1-font-size: $font-size-base * 1.56;
-$h2-font-size: $font-size-base * 1.56;
-$h3-font-size: $font-size-base * 1.375;
-$h4-font-size: $font-size-base * 0.75;
-$h5-font-size: $font-size-base * 1;
-$h6-font-size: $font-size-base * 0.85;
+$body-color: $black;
 
 $h2-color: $body-color !default;
 $h3-color: $body-color !default;
@@ -70,7 +55,7 @@ $link-hover-color: $primary;
 
 $container-padding-x: 1.25rem;
 
-$input-border-color: $dark;
+$input-border-color: $gray;
 $input-border-width: 1px;
 $input-bg: transparent;
 $input-padding-y: 0.5rem;
@@ -99,13 +84,9 @@ $custom-file-text: (
 $btn-border-width: 1px;
 $btn-border-radius: 0;
 $btn-font-weight: 500;
-$btn-padding-y: $input-padding-y;
-$btn-padding-x: $input-padding-x;
+$btn-padding-y: 0;
+$btn-padding-x: 0;
 $btn-font-size: 0.9rem;
-$btn-link-color: $primary;
-$btn-link-hover-color: $dark;
-$input-btn-font-size-lg: $font-size-base * 1.15;
-$input-btn-font-size-sm: $font-size-base * 0.6;
 
 $custom-control-gutter: 0.8rem;
 $custom-control-indicator-size: 1.4rem;

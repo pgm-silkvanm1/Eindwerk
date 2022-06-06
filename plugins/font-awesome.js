@@ -4,32 +4,44 @@ import {
   faAngleLeft,
   faAngleRight,
   faAngleUp,
-  faArrowAltCircleDown,
-  faArrowLeft,
-  faArrowRight,
   faBars,
-  faChevronDown,
-  faExternalLink,
-  faEye,
   faGlobe,
-  faLongArrowRight,
   faPhone,
   faSpinner,
   faTimes,
+  faCloudUpload,
+  faFileChartLine,
+  faCloud,
+  faFileUpload,
+  faBolt,
+  faShieldAlt,
+  faEnvelope,
 } from '@fortawesome/pro-light-svg-icons'
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import {
+  faFacebook,
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
 import {
   customIcon,
   redIcon,
   greenIcon,
   orangeIcon,
 } from 'assets/js/custom-icons'
+import { faCircle, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faBars,
   faTimes,
+  faFacebook,
   faFacebookF,
   faInstagram,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
   customIcon,
   redIcon,
   greenIcon,
@@ -41,10 +53,13 @@ library.add(
   faPhone,
   faGlobe,
   faSpinner,
-  faExternalLink,
-  faEye,
-  faLongArrowRight,
-  faArrowRight,
-  faArrowLeft,
-  faChevronDown
+  faCircle,
+  faCloudUpload,
+  faFileChartLine,
+  faCloud,
+  faFileUpload,
+  faBolt,
+  faShieldAlt,
+  faEnvelope,
+  faCircleXmark
 )

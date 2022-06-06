@@ -36,7 +36,7 @@ export default {
       error({ statusCode: 404, message: 'Pagina niet gevonden' })
     }
 
-    if (page?.translated_slugs) {
+    if (page.translated_slugs) {
       const slugs = {}
       for (const lang in page.translated_slugs) {
         slugs[lang] = { slug: page.translated_slugs[lang] }

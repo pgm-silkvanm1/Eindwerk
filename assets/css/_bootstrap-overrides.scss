@@ -1,27 +1,3 @@
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  letter-spacing: 1px;
-}
-h1,
-.h1 {
-  text-transform: uppercase;
-}
-
-h4,
-.h4 {
-  text-transform: uppercase;
-}
-
 .btn-link {
   text-decoration: none;
   border-bottom: 1px solid;
@@ -31,21 +7,12 @@ h4,
 
 .btn {
   transition: 300ms all ease-out;
-  font-family: $headings-font-family;
-  text-transform: uppercase;
 }
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    // color: $primary;
-    // background-color: transparent;
-    // border: none;
-    // border-bottom: 1px solid $primary;
-    // padding: 0;
-    // text-transform: uppercase;
-    // font-size: $small-font-size;
-    // font-weight: 600;
-    // font-family: 'termina', sans-serif;
+    text-transform: uppercase;
+    text-align: start;
     //     @mixin button-variant(
 
     //   $background,
@@ -66,18 +33,18 @@ h4,
     // ) {
 
     @include button-variant(
+      transparent,
+      transparent,
       $value,
-      $value,
-      #fff,
-      shade-color($value, 30%),
-      shade-color($value, 30%),
-      #fff,
-      $value,
-      $value,
-      #fff,
-      $value,
-      $value,
-      #fff
+      transparent,
+      transparent,
+      $body-color,
+      transparent,
+      transparent,
+      $body-color,
+      transparent,
+      transparent,
+      value
     );
   }
 
@@ -98,10 +65,6 @@ h4,
     );
     position: relative;
     border-width: 1px;
-    padding: 0.5rem 2rem;
-    text-transform: uppercase;
-    font-family: $headings-font-family;
-    font-size: 12px;
   }
 }
 .btn-outline-white {

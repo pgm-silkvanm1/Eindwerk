@@ -1,9 +1,19 @@
 <template>
-  <div class="member-wrap">
-    <div class="member" :style="memberStyles">
-      <div class="member__content p-3">
-        <div class="h3">{{ name }}</div>
-        <div class="member__jobtitle">{{ jobtitle }}</div>
+  <div class="member">
+    <BaseImage :src="image" class="img-fluid member__image" />
+    <div class="text-center">
+      <div class="h4 member__name pt-2">{{ name }}</div>
+      <div class="member__jobtitle" v-if="jobtitle">{{ jobtitle }}</div>
+      <div class="member__socials">
+        <a v-if="linkedin" :href="linkedin"
+          ><BaseIcon icon="linkedin" type="fab" class="member__socials__icon"
+        /></a>
+        <a v-if="email" :href="`mailto:${email}`"
+          ><BaseIcon icon="envelope" class="member__socials__icon"
+        /></a>
+        <a v-if="twitter" :href="twitter"
+          ><BaseIcon icon="twitter" type="fab" class="member__socials__icon"
+        /></a>
       </div>
     </div>
   </div>
@@ -12,61 +22,51 @@
 <script>
 export default {
   props: {
-    name: String,
     image: String,
+    name: String,
     jobtitle: String,
-  },
-  computed: {
-    memberStyles() {
-      return {
-        'background-image': `url(${this.imageStyle(this.image, 'square')})`,
-      }
-    },
+    linkedin: String,
+    email: String,
+    twitter: String,
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.member-wrap {
-  @include aspect-ratio(4, 5);
-}
 .member {
-  background-color: $silver;
-  display: flex;
-  flex-direction: column;
-  background-repeat: no-repeat;
-  background-size: cover;
-  justify-content: flex-end;
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(
-      to bottom,
-      rgba($primary, 0) 0%,
-      rgba($primary, 0.52) 100%
-    );
-    z-index: 0;
-
-    // <stop offset="0" stop-color="#132156" stop-opacity="0"/>
-    // <stop offset="1" stop-color="#132156" stop-opacity="0.525"/>
+  &__image {
+    // border-radius: 50%;
   }
 
-  &__content {
-    position: relative;
-    z-index: 1;
-    color: #fff;
+  &__name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: $dark;
   }
+
   &__jobtitle {
-    text-transform: uppercase;
-    font-size: $h6-font-size;
-    font-weight: 500;
-    letter-spacing: 1px;
+    color: $primary;
+    font-size: 0.8rem;
+  }
+  &__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: $primary;
+      &:not(:last-child) {
+        margin-right: 0.3rem;
+      }
+    }
+    &__icon {
+      transition: 300ms all ease;
+    }
+
+    &__icon:hover {
+      transform: scale(1.15);
+      color: $dark;
+    }
   }
 }
 </style>

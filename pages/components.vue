@@ -114,16 +114,12 @@
       v-align="center"
       :buttons="[
         {
-          button: {
-            title: 'Contacteer ons',
-            url: '/contact',
-          },
+          title: 'Contacteer ons',
+          url: '/contact',
         },
         {
-          button: {
-            title: 'Maak afspraak',
-            modal: 'calendly',
-          },
+          title: 'Maak afspraak',
+          modal: 'calendly',
         },
       ]"
     />
@@ -142,7 +138,7 @@
         <MediaText
           title="Title goes here"
           body="Lorem ipsum dolor sit ametLorem ipsum dolor sit ame tLorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
-          :buttons="[{ button: { title: 'Lees meer', url: '/contact' } }]"
+          :buttons="[{ title: 'Lees meer', url: '/contact' }]"
           :image="{ url: '/img/mountains.jpg' }"
           align="center"
           text-align="right"
@@ -150,7 +146,7 @@
         <MediaText
           title="Title goes here"
           body="Lorem ipsum dolor sit ametLorem ipsum dolor sit ame tLorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
-          :buttons="[{ button: { title: 'Lees meer', url: '/contact' } }]"
+          :buttons="[{ title: 'Lees meer', url: '/contact' }]"
           :image="{ url: '/img/mountains.jpg' }"
           align="center"
           text-align="right"
@@ -180,15 +176,18 @@
           :items="[
             {
               title: 'Vraag?',
-              body: 'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
+              body:
+                'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
             },
             {
               title: 'Vraag 2?',
-              body: 'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
+              body:
+                'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
             },
             {
               title: 'Vraag 3?',
-              body: 'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
+              body:
+                'Ut enim ad minim veniam magna aliqua que inter eiusmod tempor inter op incididunt ut labore et',
             },
           ]"
         />

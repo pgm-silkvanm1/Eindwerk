@@ -6,9 +6,6 @@ export const state = () => ({
     calendly: false,
   },
   siteLoading: false, // Set to true when implementing the loader component.
-
-  customCursor: false,
-  customCursorIcon: 'eye',
 })
 
 export const getters = {
@@ -34,13 +31,5 @@ export const mutations = {
   },
   setSiteLoaded(state) {
     state.siteLoading = false
-  },
-  toggleCustomCursor(state, toggle) {
-    if (typeof toggle === 'boolean') {
-      state.customCursor = toggle
-    } else {
-      state.customCursor = true
-      state.customCursorIcon = toggle.icon
-    }
   },
 }

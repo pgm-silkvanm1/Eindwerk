@@ -1,282 +1,236 @@
 <template>
-  <div class="contact py-6 py-lg-12">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div
-            class="contact__inner rhythm-mb-3 mb-6 d-flex flex-column justify-content-center"
-          >
-            <MiniLogo class="minilogo" />
-            <div v-if="title" class="my-5 h3 text-center">{{ title }}</div>
-            <Separator />
+  <div class="contact p-8" :style="coverStyle" :class="[coverType]">
+    <component
+      :is="titleTag"
+      v-if="title"
+      class="contact__title col-4 h1 text-dark"
+      v-html="title"
+    />
+    <!-- 
+    <BaseForm @submit="handleSubmit"> -->
+    <div class="d-flex justify-content-between p-15">
+      <div class="m-10" v-for="item in cards" :key="item.name">
+        <div class="contact__item p-2 p-xl-4 bg-white text-black">
+          <BaseImage :src="item.image" class="contact__image col-4 pb-5" />
+          <div class="contact__item__title h3 mb-1 mb-xl-3">
+            <div>
+              Book a meeting with
+              {{ item.name }}
+            </div>
           </div>
-          <BaseForm @submit="handleSubmit">
-            <div class="mb-8">
-              <div class="h4 mb-4 text-center">Kies jouw type event</div>
-              <IconSelect
-                name="eventType"
-                :options="eventTypes"
-                v-model="eventType"
-              />
-            </div>
-            <div class="mb-8">
-              <div class="h4 mb-4 text-center">Praktisch</div>
-
-              <div class="mb-2">
-                <client-only>
-                  <VueDatePicker
-                    :locale="locale"
-                    color="#db642a"
-                    format="DD MMMM YYYY"
-                    v-model="eventDate"
-                    placeholder="Datum*"
-                    class="form-control form-control--icon form-control--icon-date"
-                  />
-                </client-only>
-                <div class="invalid-feedback">Datum is verplicht</div>
-              </div>
-              <div class="mb-2">
-                <input
-                  type="number"
-                  class="form-control form-control--icon form-control--icon-number"
-                  placeholder="Aantal personen*"
-                  inputmode="numeric"
-                  pattern="[0-9]*"
-                  v-model="numPersons"
-                  required
-                />
-                <div class="invalid-feedback">Aantal personen is verplicht</div>
-              </div>
-              <div class="mb-2">
-                <select
-                  type="text"
-                  class="form-control form-control--icon form-control--icon-timespan"
-                  placeholder="Tijdspanne*"
-                  v-model="timespan"
-                  required
-                >
-                  <option value="">Tijdspanne*</option>
-                  <option
-                    v-for="n in 24"
-                    :value="`${n} uur`"
-                    :key="`timespan-${n}`"
-                  >
-                    {{ n }} uur
-                  </option>
-                </select>
-                <div class="invalid-feedback">Geef een aantaal uur in aub</div>
-              </div>
-            </div>
-
-            <div class="mb-8">
-              <div class="h4 mb-4 text-center">Extra opties</div>
-              <div class="text-center mb-6">
-                Wij nemen contact met je op om deze opties<br />
-                vrijblijvend te bespreken
-              </div>
-
-              <div class="mb-4 col-12">
-                <CustomCheckboxList
-                  :items="extraOptions"
-                  v-model="eventOptions"
-                  class="mb-3"
-                />
-                <textarea
-                  class="form-control options__container"
-                  placeholder="Extra vragen, opmerkingen ..."
-                  v-model="message"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="mb-8">
-              <div class="h4 mb-4 text-center">Jouw gegevens</div>
-              <div class="mb-2">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Voornaam + Familienaam*"
-                  v-model="name"
-                  autocomplete="name"
-                  required
-                />
-                <div class="invalid-feedback">Naam is verplicht</div>
-              </div>
-              <div class="mb-2">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="E-mailadres*"
-                  v-model="email"
-                  autocomplete="email"
-                  required
-                />
-                <div class="invalid-feedback">E-mail is verplicht</div>
-              </div>
-
-              <div class="">
-                <input
-                  type="phone"
-                  class="form-control"
-                  placeholder="Telefoon / GSM*"
-                  v-model="phone"
-                  autocomplete="tel"
-                  required
-                />
-                <div class="invalid-feedback">Telefoon is verplicht</div>
-              </div>
-            </div>
-            <div class="d-flex justify-content-center">
-              <BaseButton
-                type="submit"
-                label="Verstuur"
-                :disabled="submitting"
-                :loader="submitting"
-              />
-            </div>
-          </BaseForm>
         </div>
       </div>
     </div>
+    <!-- <div class="row gx-10">
+        <div class="col-lg-6">
+          <div class="row form-row">
+            <div class="col-sm-6">
+              <div class="mb-4">
+                <input
+                  type="text"
+                  autocomplete="given-name"
+                  class="form-control"
+                  placeholder="Voornaam*"
+                  v-model="fields.firstname"
+                  required
+                />
+                <div class="invalid-feedback">Voornaam is verplicht</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-4">
+                <input
+                  type="text"
+                  autocomplete="family-name"
+                  class="form-control"
+                  placeholder="Achternaam*"
+                  v-model="fields.lastname"
+                  required
+                />
+                <div class="invalid-feedback">Achternaam is verplicht</div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input
+              class="form-control"
+              placeholder="Bedrijfsnaam"
+              autocomplete="organization"
+              v-model="fields.organization"
+              type="text"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              autocomplete="street-address"
+              class="form-control"
+              placeholder="Straat + Nummer*"
+              v-model="fields.address"
+              required
+            />
+            <div class="invalid-feedback">Straat + Nummer</div>
+          </div>
+          <div class="row form-row">
+            <div class="col-sm-6">
+              <div class="mb-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Postcode*"
+                  v-model="fields.zip"
+                  required
+                  autocomplete="postal-code"
+                />
+                <div class="invalid-feedback">Postcode is verplicht</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Gemeente*"
+                  v-model="fields.city"
+                  autocomplete="address-level2"
+                  required
+                />
+                <div class="invalid-feedback">Gemeente is verplicht</div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <input
+              class="form-control"
+              required
+              placeholder="Telefoon*"
+              autocomplete="tel"
+              v-model="fields.phone"
+              type="text"
+            />
+            <div class="invalid-feedback">Telefoon is verplicht</div>
+          </div>
+          <div class="">
+            <input
+              class="form-control"
+              required
+              autocomplete="email"
+              placeholder="email*"
+              v-model="fields.email"
+              type="email"
+            />
+            <div class="invalid-feedback">E-mail is verplicht</div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex flex-column">
+          <div class="flex-grow-1 mb-4 d-flex flex-column">
+            <textarea
+              required
+              class="form-control flex-grow-1"
+              placeholder="Welke boodschap wil je meegeven*"
+              v-model="fields.message"
+              rows="3"
+            ></textarea>
+            <div class="invalid-feedback">Boodschap is verplicht</div>
+          </div>
+          <BaseButton
+            class="align-self-start"
+            type="submit"
+            label="Verstuur"
+            variant="outline-primary"
+            :disabled="submitting"
+            :loader="submitting"
+          />
+        </div>
+      </div> -->
+    <!-- </BaseForm> -->
   </div>
 </template>
 
 <script>
-import { mapFields } from 'vuex-map-fields'
 import axios from 'axios'
-import locale from '~/assets/js/vue-datepicker-locale.js'
-
 export default {
   props: {
+    coverType: {
+      type: String,
+      default: 'square',
+    },
     title: String,
+    titleTag: {
+      type: String,
+      default: 'h1',
+    },
+    image: {
+      type: String,
+    },
+    name: {
+      type: String,
+    },
+    cards: {
+      type: Array,
+    },
   },
   data() {
     return {
-      locale,
       submitting: false,
-      extraOptions: [
-        {
-          id: 'food',
-          label: 'Food',
-        },
-        {
-          id: 'drinks',
-          label: 'Drinks',
-        },
-        {
-          id: 'decoratie',
-          label: 'Decoratie',
-        },
-      ],
-    }
-  },
-  computed: {
-    eventTypes() {
-      return this.$store.state.event.eventTypes
-    },
-    ...mapFields('event', [
-      'fields.eventType',
-      'fields.eventDate',
-      'fields.numPersons',
-      'fields.timespan',
-      'fields.eventOptions',
-      'fields.message',
-      'fields.name',
-      'fields.email',
-      'fields.phone',
-    ]),
-    fields() {
-      return this.$store.state.event.fields
-    },
-  },
-  mounted() {
-    this.batchConfig = {
-      targets: this.$el,
-      autoReveal: true,
+      fields: {},
     }
   },
   methods: {
     async handleSubmit() {
       this.submitting = true
+      // const checkCaptcha = await validateRecaptcha(this.$recaptcha)
+
+      // if (checkCaptcha) {
       const posted = await axios.post(
-        'https://submit-form.com/r7kSxPqM',
-        this.fields
+        'https://forms.maneuver.be/ep/xx/xxx',
+        this.formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
       )
-      this.submitting = false
       if (posted) {
         this.$router.push({
           path: '/bedankt',
         })
+      }
+      // }
+    },
+  },
+  computed: {
+    formData() {
+      const fd = new FormData()
+      Object.keys(this.fields).forEach((key) => {
+        fd.append(key, this.fields[key])
+      })
+      return fd
+    },
+    coverStyle() {
+      if (this.image) {
+        return {
+          backgroundImage: `url('${this.imageStyle(this.image, 'cover')}')`,
+        }
+      }
+    },
+    overlayStyle() {
+      if (this.overlayOpacity) {
+        return {
+          opacity: parseInt(this.overlayOpacity) / 100,
+        }
       }
     },
   },
 }
 </script>
 <style lang="scss" scoped>
-.custom {
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 1px solid $dark;
-  padding: 9px;
-  border-radius: 3px;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-}
-
-.custom:checked {
-  background-color: transparent;
-  border: 1px solid $dark;
-  color: $dark;
-}
-
-.custom:checked:after {
-  content: '\2714';
-  font-size: 13px;
-  position: absolute;
-  top: 0px;
-  left: 3px;
-  color: $dark;
-}
-
 .contact {
-  background-color: $secondary;
-  &__inner {
-    align-items: center;
-    .minilogo {
-      fill: $primary;
-    }
-    .h3 {
-      text-transform: uppercase;
-      font-size: 1.25rem;
-    }
-  }
-  .square__container {
-    width: 50%;
+  &__title {
+    text-align: center;
     margin: 0 auto;
-    .square {
-      /* height: 176px; */
-      border: 1px solid $dark;
-
-      svg {
-        height: 35px;
-      }
-    }
   }
-  .options {
-    &__text {
-      font-size: 1rem;
-    }
-    &__container {
-      border: 1px solid $dark;
-      padding: 0.5rem 1rem;
-    }
-  }
-
-  .options {
-    width: 50%;
-    margin: 0 auto;
+  &__item {
+    border-radius: 25px;
+    box-shadow: 0px 0px 29px -7px rgba(0, 0, 0, 0.75);
   }
 }
 </style>

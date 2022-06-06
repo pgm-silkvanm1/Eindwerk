@@ -25,12 +25,12 @@ export default {}
     height: 6px;
     margin: auto;
     background: url('/img/mnvr-dark.png') no-repeat 0 0;
-    opacity: 0.3;
+    opacity: 0.6;
     transition: all 250ms ease-in-out;
 
     &:hover {
       width: 63px;
-      opacity: 0.3;
+      opacity: 0.6;
     }
   }
 

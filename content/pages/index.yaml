@@ -1,113 +1,103 @@
 ---
-title: Eindwerk
+title: Maneuver
 mnvr_acf:
   blocks:
+    - acf_fc_layout: cover
+      coverType: hero
+      textAlign: center
+      horizontalAlign: center
+      verticalAlign: center
+      title: Een betere manier om te <strong>luisteren<strong> bestaat er niet
+      titleTag: h2
+      prefix: prefix
+      buttons:
+        - button:
+            - url: /over-ons
+              title: Over ons
+      image: /img/mountains.jpg
+    - acf_fc_layout: spacer
+      layout_settings:
+        class:
+        id: lorem-ipsum
+    - acf_fc_layout: mediaText
+      align: center
+      textAlign: left
+      prefixTag: h2
+      prefix: prefix
+      title: Lorem ipsum dolor sit amet
+      body: <p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que. Ut enim ad minim veniam.</p>
+      image:
+        url: /img/mountains.jpg
+      flip: true
+      newsletter: true
+      variant: primary
+    - acf_fc_layout: spacer
+    - acf_fc_layout: mediaText
+      align: center
+      textAlign: left
+      title: Lorem ipsum dolor sit
+      body: <p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que. Ut enim ad minim veniam.</p>
+      image:
+        url: /img/mountains.jpg
+      buttons:
+        - button:
+            - url: /over-ons
+              title: Over ons
+      variant: primary
+    - acf_fc_layout: spacer
     - acf_fc_layout: cover
       coverType: narrow
       textAlign: center
       horizontalAlign: center
       verticalAlign: center
-      title: Een buitengewone locatie waar genieten & rust centraal staan.
-      titleTag: h1
-    - acf_fc_layout: lead-form
-      layout_settings:
-        class: container
-    - acf_fc_layout: spacer
-      size: xs
-    - acf_fc_layout: baseImage
-      src: 'https://ik.imagekit.io/maneuver/tr:w-1500,h-auto/pironne/Mask_Group_3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1651225346272'
-      class: img-fluid
-      layout_settings:
-        class: container
-    - acf_fc_layout: spacer
-    - acf_fc_layout: Intro
-      textAlign: center
-      horizontalAlign: center
-      body: Chateau Pironne is een buitengewone plek voor mooie momenten. Als verborgen parel in het Waasland vormt het de ideale locatie voor jouw event, feest, receptie of workshop.
+      overlayOpacity: 0.5
+      title: Lorem ipsum dolor sit amet, consectetur.
       buttons:
-        - button:
-            url: '/#locatie'
-            title: Meer over de locatie
-    # - acf_fc_layout: spacer
-    - acf_fc_layout: teasers
-      items:
-        - image: 'https://ik.imagekit.io/maneuver/tr:w-800,h-1200/pironne/Mask_Group_4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1651225337994'
-          title: 'Feesten'
-          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        - image: 'https://ik.imagekit.io/maneuver/tr:w-800,h-1200/pironne/Mask_Group_6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1651225334560'
-          title: 'Momenten'
-          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        - image: https://ik.imagekit.io/maneuver/tr:w-800,h-1200/pironne/Mask_Group_5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1651225336992
-          title: 'Business'
-          excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      layout_settings:
-        id: about
-        class: container
+        button:
+          - url: /over-ons
+            title: Over ons
+      image: /img/mountains.jpg
     - acf_fc_layout: spacer
-    - acf_fc_layout: events
-      # textAlign: left
-      prefix: Events by Pironne
-      title: Schrijf alvast<br>in je agenda
-      items:
-        - date: '17.04.2022'
-          name: Sparkle Popup
-          link: 'https://www.facebook.com'
-        - date: '17.04.2022'
-          name: Lorem Ipsum dolor sit amet
-          link: ''
-        - date: '17.04.2022'
-          name: Inter opus monetusque genae
-          link: ''
-        - date: '17.04.2022'
-          name: Lorem ipsum dolor sit
-          link: ''
+    - acf_fc_layout: mediaText
+      align: center
+      textAlign: left
+      title: Lorem ipsum dolor sit amet, consectetur
+      body: <p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que. Ut enim ad minim veniam.</p>
       image:
-        url: 'https://ik.imagekit.io/maneuver/tr:w-1200,h-1200/pironne/Mask_Group_7.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1651233625871'
+        url: /img/mountains.jpg
+      buttons:
+        button:
+          - url: /over-ons
+            title: Over ons
       variant: primary
-    - acf_fc_layout: spacer
-    - acf_fc_layout: location
-      prefix: De locatie
-      title: Een pand met een <br>aparte geschiedenis
-      image1:
-        url: 'https://ik.imagekit.io/maneuver/tr:w-800,h-auto/pironne/locatie1.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651233712064'
-      date: '1895'
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      image2:
-        url: https://ik.imagekit.io/maneuver/tr:w-800,h-auto/pironne/locatie2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651233711127
-      text: Vandaag vormt Chateau Pironne een rustpunt in het Waasland. Een unieke plek waar herinneringen tot leven komen.
+      flip: true
     - acf_fc_layout: spacer
     - acf_fc_layout: richText
-      coverType: narrow
-      textAlign: center
-      horizontalAlign: center
-      verticalAlign: center
-      overlayOpacity: 0.5
-      prefix: Meet the people
-      title: Een team van culinaire connaisseurs.
-      body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum </p>'
-      buttons:
-        - button:
-            url: 'mailto:hello@pironne.be'
-            title: Join the team
+      body: <p>Lorem ipsum dolor sit amet, consectetur sitsic adipiscing elit, sed do eiusmod tempor inter op incididunt ut labore et dolore magna aliqua que. Ut enim ad minim veniam.</p>
+      size: small
+      variant: silver
+      verticalPadding: py-8 py-lg-14
     - acf_fc_layout: spacer
-    - acf_fc_layout: baseImage
-      src: 'https://ik.imagekit.io/maneuver/tr:w-1500,h-auto/pironne/team.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651233837797'
-      class: img-fluid
-      layout_settings:
-        class: container
-    - acf_fc_layout: spacer
-    - acf_fc_layout: partners
-      prefix: Onze partners
+    - acf_fc_layout: usp
+      title: Lorem ipsum dolor sit amet, consectetur
       items:
-        - image: '/img/bacardi.png'
-          url: https://www.bacardi.com
-        - image: '/img/ab-inbev.png'
-          url: https://www.abinbev.com
-        - image: '/img/coca-cola.png'
-          url: https://www.coca-cola.com
-    - acf_fc_layout: spacer
-    - acf_fc_layout: contactForm
-      title: Vraag jouw event aan
-      layout_settings:
-        id: contact
+        - title: Lorem ipsum dolor
+          body: Lorem ipsum dolor sit amet, consectetur.
+          variant: secondary
+        - title: Lorem ipsum dolor
+          body: Lorem ipsum dolor sit amet, consectetur.
+          variant: secondary
+          url: /contact
+        - title: Lorem ipsum dolor
+          body: Lorem ipsum dolor sit amet, consectetur.
+          variant: secondary
+          url: /over-ons
+        - title: Lorem ipsum dolor
+          body: Lorem ipsum dolor sit amet, consectetur.
+          variant: secondary
+          url: /over-ons
+    - acf_fc_layout: testimonials
+      title: Tevreden klanten, het hele jaar door
+      items:
+        - quote: Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+        - author: Dimi Desender

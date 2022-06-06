@@ -7,11 +7,6 @@ const WP_CREDENTIALS = {
   password: process.env.CMS_PASSWORD,
 }
 
-const BASE_URL =
-  process.env.VERCEL_ENV === 'development'
-    ? 'http://localhost:3000'
-    : process.env.BASE_URL || 'https://' + process.env.VERCEL_URL
-
 // const wp = new WPAPI(WP_CREDENTIALS)
 // wp.redirects = wp.registerRoute('redirection/v1', '/redirect')
 
@@ -41,10 +36,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Eindwerk',
-    htmlAttrs: {
-      lang: 'nl',
-    },
+    title: 'TravelMore',
     meta: [
       {
         charset: 'utf-8',
@@ -57,18 +49,13 @@ export default {
         name: 'description',
         hid: 'description',
         content:
-          'Chateau Pironne is een buitengewone plek voor mooie momenten. Als verborgen parel in het Waasland vormt het de ideale locatie voor jouw event, feest, receptie of workshop.',
+          'TravelMore is the perfect tool for travellers how like to know where they are going.',
       },
       {
-        name: 'og:description',
+        property: 'og:description',
         hid: 'og:description',
         content:
-          'Chateau Pironne is een buitengewone plek voor mooie momenten. Als verborgen parel in het Waasland vormt het de ideale locatie voor jouw event, feest, receptie of workshop.',
-      },
-      {
-        property: 'og:image',
-        hid: 'og:image',
-        content: `${BASE_URL}/img/og-image.jpg`,
+          'TravelMore is the perfect tool for travellers how like to know where they are going.',
       },
       {
         property: 'og:image:width',
@@ -84,19 +71,11 @@ export default {
     link: [
       {
         rel: 'icon',
-        type: 'image/x-icon',
+        type: 'image/svg+xml',
         href: '/favicon.svg',
       },
-      {
-        rel: 'canonical',
-        href: BASE_URL,
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.typekit.net/hcx1lkg.css',
-      },
     ],
-    script: [{ ...fathomScript }],
+    script: [fathomScript, {}],
   },
 
   /*
@@ -112,8 +91,9 @@ export default {
     '~/plugins/mixins.js',
     '~/plugins/font-awesome',
     { src: '~/plugins/google-maps', ssr: true },
+    { src: '~/plugins/vue-awesome-swiper', ssr: false },
+    { src: '~/plugins/vue-masonry-css', ssr: false },
     { src: '~/plugins/bootstrap', ssr: false },
-    '~/plugins/vue-slick-carousel',
   ],
 
   googleFonts: {
@@ -137,12 +117,7 @@ export default {
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: [
-    '~/components',
-    '~/components/base',
-    '~/components/slices',
-    '~/components/ui',
-  ],
+  components: true,
 
   /*
    ** Nuxt.js dev-modules
@@ -162,6 +137,28 @@ export default {
     // '@nuxtjs/redirect-module',
     // 'iubenda-module',
     // 'wp-nuxt',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyDZ588Uw349mjqlB14un1EqiIny9kNLRXc',
+          authDomain: 'travel-a3f9b.firebaseapp.com',
+          projectId: 'travel-a3f9b',
+          storageBucket: 'travel-a3f9b.appspot.com',
+          messagingSenderId: '312953216388',
+          appId: '1:312953216388:web:9bf151baf2433832e491d1',
+          measurementId: 'G-4VJ0328ZDM',
+        },
+        services: {
+          auth: {
+            initialize: {
+              onAuthStateChangeMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              //   onAuthStateChangedAction: 'onAuthChangedAction',
+            },
+          },
+        },
+      },
+    ],
   ],
 
   /*
@@ -213,7 +210,7 @@ export default {
             {
               autoAlpha: 1,
               y: 0,
-              duration: 1.2,
+              duration: 0.5,
               ease: 'power3.out',
             }
           )
@@ -353,6 +350,5 @@ export default {
 
   generate: {
     exclude: ['/components'],
-    fallback: true,
   },
 }

@@ -1,9 +1,5 @@
-import slugify from 'slugify'
 export default {
   methods: {
-    slugify(string) {
-      return slugify(string, { lower: true, strict: true })
-    },
     formatDate(dateString, format) {
       if (!format) {
         format = 'D MMMM'

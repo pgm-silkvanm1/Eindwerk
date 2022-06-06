@@ -26,6 +26,39 @@ body {
   flex-grow: 1;
 }
 
+// .btn-somnilog {
+//   color: $white;
+//   display: flex;
+//   align-items: center;
+//   background: transparent;
+//   border-radius: none;
+//   font-size: 1rem;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   transition: 300ms all ease-out;
+
+//   &:hover {
+//     color: $dark;
+//     background-color: transparent;
+//   }
+// }
+
+.underline {
+  position: relative;
+
+  &::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 15px;
+    background: $secondary;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
 :root {
   // Set current container width as CSS variable to use in CSS properties.
   --container-width: 0;
@@ -35,12 +68,4 @@ body {
       --container-width: #{$width};
     }
   }
-}
-
-.vd-picker__input-icon {
-  display: none !important;
-}
-.vd-picker__input input::placeholder {
-  color: $dark !important;
-  opacity: 1 !important;
 }

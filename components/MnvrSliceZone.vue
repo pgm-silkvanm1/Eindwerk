@@ -2,6 +2,8 @@
   <div>
     <template v-for="(slice, index) in slices">
       <div
+        ref="slices"
+        class="slice-wrap"
         :class="[
           sliceWrapper,
           slice.layout_settings && slice.layout_settings.class
@@ -30,5 +32,17 @@ export default {
       default: '',
     },
   },
+  mounted() {
+    this.batchConfig = {
+      targets: this.$refs.slices,
+      autoReveal: true,
+    }
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.slice-wrap {
+  visibility: hidden;
+}
+</style>

@@ -1,5 +1,6 @@
 export const state = () => ({
   settings: {},
+  user: false,
 })
 
 export const getters = {
@@ -11,6 +12,14 @@ export const getters = {
 export const mutations = {
   initSettings(state, data) {
     state.settings = data
+  },
+  ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
+    if (authUser) {
+      const { uid, email, displayName } = authUser
+      state.user = { uid, email, displayName }
+    } else {
+      state.user = false
+    }
   },
 }
 
