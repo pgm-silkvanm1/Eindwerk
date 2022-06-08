@@ -3,8 +3,8 @@ items:
   - title: Home
     url: '/dashboard'
   - title: Contact Us
-    url: '/'
+    url: '/contact'
   - title: About Us
-    url: '/'
+    url: '/about'
   - title: Terms of use & Privacy Policy
     url: '/'
