@@ -5,6 +5,7 @@
 <script>
 export default {
   mounted() {
+    const app = this
     const firebaseui = require('firebaseui')
     require('firebaseui/dist/firebaseui.css')
     const ui =
@@ -19,7 +20,8 @@ export default {
       callbacks: {
         signInSuccessWithAuthResult() {
           console.log('Successfully signed in')
-          window.location = '/dashboard'
+
+          app.$router.push('/dashboard')
         },
       },
     }

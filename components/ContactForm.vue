@@ -2,7 +2,9 @@
   <div class="contact container-fluid p-sm-4 p-lg-8">
     <div class="d-flex flex-column align-items-center">
       <div class="col-lg-4">
-        <h2 class="contact__title text-center">Contact us</h2>
+        <div class="underline justify-content-center">
+          <h2 class="contact__title underline__text text-center">Contact us</h2>
+        </div>
       </div>
       <div v-if="submitted" class="text-primary p-4 rounded text-center">
         <BaseIcon icon="comment-alt-check" type="fas" size="2x" />
@@ -136,7 +138,6 @@ export default {
 <style lang="scss" scoped>
 .contact {
   &__title {
-    color: $dark;
     padding-bottom: 2rem;
   }
   &__prefix {

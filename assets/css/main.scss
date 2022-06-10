@@ -41,36 +41,25 @@ h2 {
   flex-grow: 1;
 }
 
-// .btn-somnilog {
-//   color: $white;
-//   display: flex;
-//   align-items: center;
-//   background: transparent;
-//   border-radius: none;
-//   font-size: 1rem;
-//   text-transform: uppercase;
-//   text-decoration: none;
-//   transition: 300ms all ease-out;
-
-//   &:hover {
-//     color: $dark;
-//     background-color: transparent;
-//   }
-// }
-
 .underline {
   position: relative;
+  height: 5rem;
+  display: flex;
+  //   justify-content: center;
 
-  &::after {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 15px;
-    background: $secondary;
+  &__text {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
+
+    &::before {
+      content: '';
+      background-color: $secondary;
+      height: 20px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 100%;
+      z-index: -1;
+    }
   }
 }
 

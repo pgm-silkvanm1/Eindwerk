@@ -94,6 +94,7 @@ export default {
     { src: '~/plugins/vue-awesome-swiper', ssr: false },
     { src: '~/plugins/vue-masonry-css', ssr: false },
     { src: '~/plugins/bootstrap', ssr: false },
+    { src: '~/plugins/vuex-persist', ssr: false },
   ],
 
   googleFonts: {

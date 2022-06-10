@@ -1,6 +1,7 @@
 export const state = () => ({
   settings: {},
   user: false,
+  activeLocation: null,
 })
 
 export const getters = {
@@ -12,6 +13,9 @@ export const getters = {
 export const mutations = {
   initSettings(state, data) {
     state.settings = data
+  },
+  setActiveLocation(state, locaction) {
+    state.activeLocation = locaction
   },
   ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
     if (authUser) {

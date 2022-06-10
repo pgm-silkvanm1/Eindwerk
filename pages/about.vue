@@ -3,7 +3,9 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-4">
         <div class="text-center">
-          <h2 class="about__title mb-10">About us</h2>
+          <div class="underline justify-content-center">
+            <h2 class="underline__text">About us</h2>
+          </div>
           <RichText />
         </div>
       </div>

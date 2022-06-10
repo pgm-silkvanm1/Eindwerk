@@ -2,14 +2,24 @@
   <div class="landing">
     <div class="d-flex">
       <div class="col-6 p-15">
-        <h1>
-          <span class="underline">Build your tri</span>p from <br />
-          start to finish
-        </h1>
+        <div class="underline">
+          <h1>
+            <span class="underline__text">Build your trip from</span>
+
+            <br />
+            start to finish
+          </h1>
+        </div>
         <h2 class="pt-10">Perfect for citytrips and <br />road trips</h2>
-        <nuxt-link to="/login">
-          <BaseButton class="mt-10" label="Start planning" />
-        </nuxt-link>
+        <div>
+          <gmap-autocomplete
+            @place_changed="savePlace"
+            class="mt-5"
+          ></gmap-autocomplete>
+          <nuxt-link to="/dashboard">
+            <BaseButton class="mt-10" label="Start planning" />
+          </nuxt-link>
+        </div>
       </div>
       <div class="col-6">
         <img class="w-100" src="../static/img/home.png" />
@@ -19,7 +29,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    savePlace(loc) {
+      this.$store.commit('setActiveLocation', loc)
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
