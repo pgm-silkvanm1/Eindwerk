@@ -15,25 +15,52 @@
           <h3>Explore</h3>
           <div class="d-flex gap-5">
             <div class="row">
-              <div class="explore">
+              <div class="musea" @click="findMusea">
                 <img
                   class="w-100 explore__photo"
                   src="../static/img/explore1.jpg"
                 />
               </div>
               <div>Top musea in {{ activeLocation.name }}</div>
+              <!-- <ul>
+                <li
+                  @click="loadDetails(result.place_id)"
+                  v-for="result in results"
+                  :key="result.name"
+                >
+                  {{ result.name }}
+                </li>
+              </ul> -->
             </div>
             <div class="row">
-              <div class="">
+              <div class="restaurants" @click="findRestaurants">
                 <img class="w-100" src="../static/img/explore2.jpg" />
               </div>
               <div>Best restaurants in {{ activeLocation.name }}</div>
+              <!-- <ul>
+                <li
+                  @click="loadDetails(result.place_id)"
+                  v-for="result in results"
+                  :key="result.name"
+                >
+                  {{ result.name }}
+                </li>
+              </ul> -->
             </div>
             <div class="row">
-              <div class="">
+              <div class="activities" @click="findActivities">
                 <img class="w-100" src="../static/img/explore3.jpg" />
               </div>
               <div>Best activities in {{ activeLocation.name }}</div>
+              <!-- <ul>
+                <li
+                  @click="loadDetails(result.place_id)"
+                  v-for="result in results"
+                  :key="result.name"
+                >
+                  {{ result.name }}
+                </li>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -50,7 +77,7 @@
                 @click="loadDetails(result.place_id)"
                 v-for="result in results"
                 :key="result.name"
-                class="place"
+                class="place collapsed"
                 data-bs-toggle="collapse"
                 :data-bs-target="`#${collapseId}`"
               >
@@ -58,7 +85,7 @@
                 <div
                   :id="collapseId"
                   class="collapse"
-                  data-bs-parent="#services"
+                  data-bs-parent="#details"
                 >
                   {{ result.rating }} stars
                 </div>
@@ -70,7 +97,7 @@
           <h3>Places to visit</h3>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-4 maps">
         <gmap-map
           v-if="activeLocation && activeLocation.geometry"
           :zoom="14"
@@ -96,6 +123,9 @@ export default {
       detail: null,
       query: '',
       results: [],
+      musea: 'musea',
+      restaurants: 'restaurants',
+      activities: 'activities',
     }
   },
   computed: {
@@ -143,6 +173,48 @@ export default {
         this.results = result
       })
     },
+    findMusea() {
+      const request = {
+        location: this.activeLocation.geometry.location,
+        radius: '500',
+        query: this.musea,
+      }
+
+      const map = this.$refs.map.$mapObject
+      const service = new google.maps.places.PlacesService(map)
+
+      service.textSearch(request, (result) => {
+        this.results = result
+      })
+    },
+    findRestaurants() {
+      const request = {
+        location: this.activeLocation.geometry.location,
+        radius: '500',
+        query: this.restaurants,
+      }
+
+      const map = this.$refs.map.$mapObject
+      const service = new google.maps.places.PlacesService(map)
+
+      service.textSearch(request, (result) => {
+        this.results = result
+      })
+    },
+    findActivities() {
+      const request = {
+        location: this.activeLocation.geometry.location,
+        radius: '500',
+        query: this.activities,
+      }
+
+      const map = this.$refs.map.$mapObject
+      const service = new google.maps.places.PlacesService(map)
+
+      service.textSearch(request, (result) => {
+        this.results = result
+      })
+    },
     signOut() {
       this.$fire.auth.signOut()
       window.location = '/login'
@@ -154,6 +226,7 @@ export default {
 <style lang="scss" scoped>
 body {
   background-color: $gray;
+  position: relative;
 }
 
 .image--dashboard {
@@ -167,5 +240,10 @@ body {
   &:hover {
     color: $primary;
   }
+}
+
+.maps {
+  position: fixed;
+  right: 0;
 }
 </style>
