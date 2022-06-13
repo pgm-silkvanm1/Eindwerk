@@ -104,7 +104,7 @@ export default {
 
       //   if (checkCaptcha) {
       try {
-        await axios.post('https://submit-form.com/YvcDBFF2', {
+        await axios.post('https://formspree.io/f/mayvklzy', {
           ...this.fields,
           _redirect: false,
         })
