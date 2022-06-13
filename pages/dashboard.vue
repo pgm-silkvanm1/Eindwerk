@@ -6,7 +6,7 @@
         <div class="image--dashboard">
           <img class="photo w-100" key="" src="../static/img/dashboard.jpg" />
         </div>
-        <div class="underline d-flex justify-content-center">
+        <div class="underline d-flex justify-content-center pt-3">
           <h2 class="underline__text" v-if="activeLocation">
             Trip To {{ activeLocation.name }}
           </h2>

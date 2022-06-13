@@ -36,7 +36,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'TravelMore',
+    title: 'Travelmore',
     meta: [
       {
         charset: 'utf-8',
@@ -49,13 +49,13 @@ export default {
         name: 'description',
         hid: 'description',
         content:
-          'TravelMore is the perfect tool for travellers how like to know where they are going.',
+          'Travelmore is the perfect tool for travellers how like to know where they are going.',
       },
       {
         property: 'og:description',
         hid: 'og:description',
         content:
-          'TravelMore is the perfect tool for travellers how like to know where they are going.',
+          'Travelmore is the perfect tool for travellers how like to know where they are going.',
       },
       {
         property: 'og:image:width',
