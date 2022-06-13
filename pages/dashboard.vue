@@ -52,17 +52,20 @@
                 @click="loadDetails(result.place_id)"
                 v-for="(result, index) in results"
                 :key="result.name"
-                class="place collapsed py-3"
-                data-bs-toggle="collapse"
-                :data-bs-target="`#${collapseId}-${index}`"
+                class="place py-3"
               >
-                <div class="place__name d-flex text-center">
+                <div
+                  class="place__name d-flex text-center collapsed"
+                  data-bs-toggle="collapse"
+                  :data-bs-target="`#${collapseId}-${index}`"
+                >
                   <div>
                     {{ result.name }}
                   </div>
                   <div class="tag">
                     {{ result.types[0] }}
                   </div>
+                  <BaseIcon icon="angle-down" class="icon" />
                 </div>
                 <div
                   :id="`${collapseId}-${index}`"
@@ -155,7 +158,7 @@ export default {
     findPlaces() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '300',
+        radius: '1000',
         query: this.query,
       }
 
@@ -169,7 +172,7 @@ export default {
     findMusea() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '100',
+        radius: '1000',
         query: this.musea,
       }
 
@@ -183,7 +186,7 @@ export default {
     findRestaurants() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '100',
+        radius: '1000',
         query: this.restaurants,
       }
 
@@ -197,7 +200,7 @@ export default {
     findActivities() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '100',
+        radius: '1000',
         query: this.activities,
       }
 
@@ -242,15 +245,31 @@ body {
   &__name {
     font-weight: bold;
     font-size: 1.2rem;
-  }
-  .tag {
-    background-color: black;
-    color: white;
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 300;
+    align-items: center;
+
+    .tag {
+      background-color: black;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 300;
+      margin-right: 2rem;
+    }
+    .icon {
+      transform: rotate(-180deg);
+      /* right: -35rem; */
+      color: black;
+      transition: 150ms all ease-out;
+    }
+
+    &.collapsed {
+      .icon {
+        color: gray;
+        transform: rotate(0);
+      }
+    }
   }
   /* &:hover {
     color: $primary;
