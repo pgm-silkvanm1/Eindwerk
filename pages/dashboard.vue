@@ -16,10 +16,6 @@
           <div class="d-flex justify-content-between py-5">
             <div class="row">
               <div class="musea" @click="findMusea">
-                <!-- <img
-                  class="w-100 explore__photo"
-                  src="../static/img/explore1.jpg"
-                /> -->
                 <button class="search">
                   Search musea in {{ activeLocation.name }}
                 </button>
@@ -27,7 +23,6 @@
             </div>
             <div class="row">
               <div class="restaurants" @click="findRestaurants">
-                <!-- <img class="w-100" src="../static/img/explore2.jpg" /> -->
                 <button class="search">
                   Search restaurants in {{ activeLocation.name }}
                 </button>
@@ -35,7 +30,6 @@
             </div>
             <div class="row">
               <div class="activities" @click="findActivities">
-                <!-- <img class="w-100" src="../static/img/explore3.jpg" /> -->
                 <button class="search">
                   Search Activities in {{ activeLocation.name }}
                 </button>
@@ -46,7 +40,6 @@
         <div class="mt-5 p-5">
           <h3 class="pb-5">Search</h3>
           <label>
-            <!-- <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete> -->
             <input type="text" v-model="query" placeholder="e.g. pubs" />
             <button @click="findPlaces">Search</button>
           </label>
@@ -156,7 +149,7 @@ export default {
 
       service.getDetails(request, (detail) => {
         this.detail = detail
-        console.log(detail)
+        // console.log(detail)
       })
     },
     findPlaces() {
@@ -234,10 +227,6 @@ body {
     height: 15rem;
     object-fit: cover;
   }
-}
-
-ol {
-  /* padding: 0; */
 }
 
 .search {
