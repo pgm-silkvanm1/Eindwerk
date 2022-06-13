@@ -138,7 +138,6 @@ export default {
     // if (!user) {
     //   //   this.$router.push('/login')
     // }
-    // this.locateGeoLocation()
   },
 
   methods: {
