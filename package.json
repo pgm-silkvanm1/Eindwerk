@@ -12,7 +12,9 @@
     "prismic-setup": "prismic theme --theme-url https://github.com/maneuver-agency/prismic-theme",
     "vue-to-acf": "vue-to-acf parse --dir=./components"
   },
-  "dependencies": {},
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
   "devDependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxt/image": "^0.6.0",
