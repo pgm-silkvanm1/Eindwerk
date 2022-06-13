@@ -6,95 +6,95 @@
         <div class="image--dashboard">
           <img class="photo w-100" key="" src="../static/img/dashboard.jpg" />
         </div>
-        <div class="underline">
+        <div class="underline d-flex justify-content-center">
           <h2 class="underline__text" v-if="activeLocation">
             Trip To {{ activeLocation.name }}
           </h2>
         </div>
         <div class="mt-5 px-5">
           <h3>Explore</h3>
-          <div class="d-flex gap-5">
+          <div class="d-flex justify-content-between py-5">
             <div class="row">
               <div class="musea" @click="findMusea">
-                <img
+                <!-- <img
                   class="w-100 explore__photo"
                   src="../static/img/explore1.jpg"
-                />
+                /> -->
+                <button class="search">
+                  Search musea in {{ activeLocation.name }}
+                </button>
               </div>
-              <div>Top musea in {{ activeLocation.name }}</div>
-              <!-- <ul>
-                <li
-                  @click="loadDetails(result.place_id)"
-                  v-for="result in results"
-                  :key="result.name"
-                >
-                  {{ result.name }}
-                </li>
-              </ul> -->
             </div>
             <div class="row">
               <div class="restaurants" @click="findRestaurants">
-                <img class="w-100" src="../static/img/explore2.jpg" />
+                <!-- <img class="w-100" src="../static/img/explore2.jpg" /> -->
+                <button class="search">
+                  Search restaurants in {{ activeLocation.name }}
+                </button>
               </div>
-              <div>Best restaurants in {{ activeLocation.name }}</div>
-              <!-- <ul>
-                <li
-                  @click="loadDetails(result.place_id)"
-                  v-for="result in results"
-                  :key="result.name"
-                >
-                  {{ result.name }}
-                </li>
-              </ul> -->
             </div>
             <div class="row">
               <div class="activities" @click="findActivities">
-                <img class="w-100" src="../static/img/explore3.jpg" />
+                <!-- <img class="w-100" src="../static/img/explore3.jpg" /> -->
+                <button class="search">
+                  Search Activities in {{ activeLocation.name }}
+                </button>
               </div>
-              <div>Best activities in {{ activeLocation.name }}</div>
-              <!-- <ul>
-                <li
-                  @click="loadDetails(result.place_id)"
-                  v-for="result in results"
-                  :key="result.name"
-                >
-                  {{ result.name }}
-                </li>
-              </ul> -->
             </div>
           </div>
         </div>
-        <div class="mt-5 px-5">
-          <h3>Search</h3>
+        <div class="mt-5 p-5">
+          <h3 class="pb-5">Search</h3>
           <label>
             <!-- <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete> -->
-            <input type="text" v-model="query" />
+            <input type="text" v-model="query" placeholder="e.g. pubs" />
             <button @click="findPlaces">Search</button>
           </label>
-          <div>
-            <ul id="details">
-              <li
-                @click="loadDetails(result.place_id)"
-                v-for="result in results"
-                :key="result.name"
-                class="place collapsed"
-                data-bs-toggle="collapse"
-                :data-bs-target="`#${collapseId}`"
-              >
-                {{ result.name }}
-                <div
-                  :id="collapseId"
-                  class="collapse"
-                  data-bs-parent="#details"
-                >
-                  {{ result.rating }} stars
-                </div>
-              </li>
-            </ul>
-          </div>
         </div>
         <div class="mt-5 px-5">
-          <h3>Places to visit</h3>
+          <h3 class="pb-5">Places to visit</h3>
+          <div>
+            <ol id="details">
+              <li
+                @click="loadDetails(result.place_id)"
+                v-for="(result, index) in results"
+                :key="result.name"
+                class="place collapsed py-3"
+                data-bs-toggle="collapse"
+                :data-bs-target="`#${collapseId}-${index}`"
+              >
+                <div class="place__name d-flex text-center">
+                  <div>
+                    {{ result.name }}
+                  </div>
+                  <div class="tag">
+                    {{ result.types[0] }}
+                  </div>
+                </div>
+                <div
+                  :id="`${collapseId}-${index}`"
+                  class="collapse py-2"
+                  data-bs-parent="#details"
+                >
+                  <p>
+                    <strong class="pe-2">Rating:</strong> {{ result.rating }}
+                    <BaseIcon icon="star" variant="secondary" />
+                  </p>
+                  <p>
+                    <strong class="pe-2">Address:</strong>
+                    {{ result.formatted_address }}
+                  </p>
+                  <p v-if="detail">
+                    <strong class="pe-2">Telephone:</strong>
+                    {{ detail.formatted_phone_number }}
+                  </p>
+                  <p v-if="detail">
+                    <strong class="pe-2">Website:</strong> {{ detail.website }}
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
       <div class="col-4 maps">
@@ -162,7 +162,7 @@ export default {
     findPlaces() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '500',
+        radius: '300',
         query: this.query,
       }
 
@@ -176,7 +176,7 @@ export default {
     findMusea() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '500',
+        radius: '100',
         query: this.musea,
       }
 
@@ -190,7 +190,7 @@ export default {
     findRestaurants() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '500',
+        radius: '100',
         query: this.restaurants,
       }
 
@@ -204,7 +204,7 @@ export default {
     findActivities() {
       const request = {
         location: this.activeLocation.geometry.location,
-        radius: '500',
+        radius: '100',
         query: this.activities,
       }
 
@@ -236,9 +236,39 @@ body {
   }
 }
 
+ol {
+  /* padding: 0; */
+}
+
+.search {
+  background-color: $secondary;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+}
+
 .place {
-  &:hover {
+  border-bottom: 1px solid $gray;
+  padding-left: 1rem;
+  &__name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .tag {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+  /* &:hover {
     color: $primary;
+  } */
+  &::marker {
+    /* content: url(../assets/svg/marker.svg); */
+    /* content: '+'; */
   }
 }
 

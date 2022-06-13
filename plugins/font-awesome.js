@@ -16,6 +16,7 @@ import {
   faBolt,
   faShieldAlt,
   faEnvelope,
+  faStar,
 } from '@fortawesome/pro-light-svg-icons'
 import {
   faFacebook,
@@ -61,5 +62,6 @@ library.add(
   faBolt,
   faShieldAlt,
   faEnvelope,
-  faCircleXmark
+  faCircleXmark,
+  faStar
 )
