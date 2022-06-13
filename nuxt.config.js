@@ -352,5 +352,6 @@ export default {
 
   generate: {
     exclude: ['/components'],
+    dir: 'dist',
   },
 }
