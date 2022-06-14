@@ -15,6 +15,7 @@
           <gmap-autocomplete
             @place_changed="savePlace"
             class="mt-5"
+            placeholder="Where to? e.g. Gent"
           ></gmap-autocomplete>
           <nuxt-link to="/dashboard">
             <BaseButton class="mt-10" label="Start planning" />
