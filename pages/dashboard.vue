@@ -1,8 +1,8 @@
 <template>
   <div>
     <button color="primary" v-on:click="signOut()">Sign Out</button>
-    <div class="d-flex">
-      <div class="col-8">
+    <div class="d-md-flex">
+      <div class="col-12 col-md-8">
         <div class="image--dashboard">
           <img class="photo w-100" key="" src="../static/img/dashboard.jpg" />
         </div>
@@ -93,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 maps">
+      <div class="col-12 col-md-4 maps">
         <gmap-map
           v-if="activeLocation && activeLocation.geometry"
           :zoom="14"
@@ -275,12 +275,14 @@ body {
   } */
   &::marker {
     /* content: url(../assets/svg/marker.svg); */
-    /* content: '+'; */
   }
 }
 
 .maps {
-  position: fixed;
-  right: 0;
+  display: block;
+  @media (min-width: 720px) {
+    position: fixed;
+    right: 0;
+  }
 }
 </style>

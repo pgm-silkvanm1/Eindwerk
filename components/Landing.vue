@@ -1,7 +1,7 @@
 <template>
   <div class="landing">
-    <div class="d-flex">
-      <div class="col-6 p-15">
+    <div class="d-xl-flex">
+      <div class="col-12 col-xl-6 p-15">
         <div class="underline">
           <h1>
             <span class="underline__text">Build your trip from</span>
@@ -21,7 +21,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-xl-6">
         <img class="w-100" src="../static/img/home.png" />
       </div>
     </div>
