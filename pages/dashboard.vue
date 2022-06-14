@@ -82,10 +82,13 @@
                   </p>
                   <p v-if="detail">
                     <strong class="pe-2">Telephone:</strong>
+                    <a :href="`tel:${detail.formatted_phone_number}`"></a>
                     {{ detail.formatted_phone_number }}
                   </p>
                   <p v-if="detail">
-                    <strong class="pe-2">Website:</strong> {{ detail.website }}
+                    <strong class="pe-2">Website:</strong>
+                    <a :href="detail.website"> {{ detail.website }}</a>
+                    >
                   </p>
                 </div>
               </li>

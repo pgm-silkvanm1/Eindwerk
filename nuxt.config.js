@@ -37,6 +37,9 @@ export default {
    */
   head: {
     title: 'Travelmore',
+    htmlAttrs: {
+      lang: 'en',
+    },
     meta: [
       {
         charset: 'utf-8',
@@ -352,6 +355,7 @@ export default {
 
   generate: {
     exclude: ['/components'],
+    fallback: true,
     dir: 'dist',
   },
 }
