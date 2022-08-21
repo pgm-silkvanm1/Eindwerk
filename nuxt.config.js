@@ -147,6 +147,8 @@ export default {
         config: {
           apiKey: 'AIzaSyDZ588Uw349mjqlB14un1EqiIny9kNLRXc',
           authDomain: 'travel-a3f9b.firebaseapp.com',
+          databaseURL:
+            'https://travel-a3f9b-default-rtdb.europe-west1.firebasedatabase.app',
           projectId: 'travel-a3f9b',
           storageBucket: 'travel-a3f9b.appspot.com',
           messagingSenderId: '312953216388',

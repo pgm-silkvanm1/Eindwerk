@@ -66,6 +66,7 @@
                     {{ result.types[0] }}
                   </div>
                   <BaseIcon icon="angle-down" class="icon" />
+                  <button @click="toggleLikePlace(result)">Like</button>
                 </div>
                 <div
                   :id="`${collapseId}-${index}`"
@@ -116,11 +117,45 @@
 </template>
 
 <script>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: 'AIzaSyDZ588Uw349mjqlB14un1EqiIny9kNLRXc',
+  authDomain: 'travel-a3f9b.firebaseapp.com',
+  databaseURL:
+    'https://travel-a3f9b-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'travel-a3f9b',
+  storageBucket: 'travel-a3f9b.appspot.com',
+  messagingSenderId: '312953216388',
+  appId: '1:312953216388:web:9bf151baf2433832e491d1',
+  measurementId: 'G-4VJ0328ZDM',
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
+const db = getFirestore(app)
+
+async function getPlaces(db) {
+  const locationsCol = collection(db, 'locations')
+  const locationSnapshot = await getDocs(locationsCol)
+  const locationList = locationSnapshot.docs.map((doc) => doc.data())
+  return locationList
+}
+
 export default {
   data() {
     return {
       detail: null,
       query: '',
+      locationList: getPlaces(db),
       results: [],
       musea: 'musea',
       restaurants: 'restaurants',
@@ -139,11 +174,16 @@ export default {
   mounted() {
     // const user = this.$store.state.user
     // if (!user) {
-    //   //   this.$router.push('/login')
+    //   this.$router.push('/login')
     // }
   },
 
   methods: {
+    toggleLikePlace(place) {
+      //placeJSON = JSON.stringify(obj)
+      const places = this.locationList
+      console.log('Output json bla ' + places)
+    },
     loadDetails(placeId) {
       var request = {
         placeId: placeId,
@@ -154,7 +194,7 @@ export default {
 
       service.getDetails(request, (detail) => {
         this.detail = detail
-        // console.log(detail)
+        console.log(detail)
       })
     },
     findPlaces() {
