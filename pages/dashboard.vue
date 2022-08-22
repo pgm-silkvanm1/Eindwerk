@@ -386,20 +386,10 @@ body {
     right: 0;
     bottom: 1.5rem;
   }
-  /* &:hover {
-    color: $primary;
-  } */
-  &::marker {
-    /* content: url(../assets/svg/marker.svg); */
-  }
 }
 
 .likedPlace {
   margin-bottom: 5rem;
-
-  ul {
-    /* padding: 0; */
-  }
 
   &__list {
     margin: 2rem 0;
