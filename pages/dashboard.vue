@@ -103,7 +103,7 @@
           <h3 class="">Bookmarked places</h3>
           <ul>
             <li
-              class="likedPlace__list"
+              class="likedPlace__list py-3"
               v-for="(result, index) in locationList"
               :key="index"
             >
@@ -403,7 +403,7 @@ body {
 
   &__list {
     margin: 2rem 0;
-    padding: 1rem 0;
+    padding-left: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
