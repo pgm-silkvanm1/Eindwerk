@@ -1,15 +1,13 @@
 <template>
   <div>
     <button color="primary" v-on:click="signOut()">Sign Out</button>
-    <div class="d-md-flex">
+    <div class="d-md-flex" v-if="activeLocation">
       <div class="col-12 col-md-8">
         <div class="image--dashboard">
           <img class="photo w-100" key="" src="../static/img/dashboard.jpg" />
         </div>
         <div class="underline d-flex justify-content-center pt-3">
-          <h2 class="underline__text" v-if="activeLocation">
-            Trip To {{ activeLocation.name }}
-          </h2>
+          <h2 class="underline__text">Trip To {{ activeLocation.name }}</h2>
         </div>
         <div class="mt-5 px-5">
           <h3>Explore</h3>
@@ -66,8 +64,8 @@
                     {{ result.types[0] }}
                   </div>
                   <BaseIcon icon="angle-down" class="icon" />
-                  <button @click="toggleLikePlace(result)">Like</button>
                 </div>
+                <button @click="toggleLikePlace(result)">Like</button>
                 <div
                   :id="`${collapseId}-${index}`"
                   class="collapse py-2"
@@ -96,6 +94,15 @@
             </ol>
           </div>
         </div>
+
+        <div>
+          <ul>
+            <li v-for="(result, index) in locationList" :key="index">
+              {{ result }}
+              <button @click="toggleUnLikePlace(result)">UNLIKE</button>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="col-12 col-md-4 maps">
         <gmap-map
@@ -120,7 +127,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  setDoc,
+  doc,
+  deleteDoc,
+} from 'firebase/firestore/lite'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -138,11 +153,6 @@ const firebaseConfig = {
   measurementId: 'G-4VJ0328ZDM',
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
-const db = getFirestore(app)
-
 async function getPlaces(db) {
   const locationsCol = collection(db, 'locations')
   const locationSnapshot = await getDocs(locationsCol)
@@ -155,11 +165,12 @@ export default {
     return {
       detail: null,
       query: '',
-      locationList: getPlaces(db),
+      locationList: [],
       results: [],
       musea: 'musea',
       restaurants: 'restaurants',
       activities: 'activities',
+      db: null,
     }
   },
   computed: {
@@ -171,19 +182,51 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig)
+    this.db = getFirestore(app)
+
+    getPlaces(this.db).then((response) => {
+      this.locationList = response
+    })
+
     // const user = this.$store.state.user
     // if (!user) {
     //   this.$router.push('/login')
     // }
   },
 
+  mounted() {
+    if (!this.activeLocation) {
+      window.location = '/'
+    }
+  },
+
   methods: {
-    toggleLikePlace(place) {
+    async toggleLikePlace(place) {
       //placeJSON = JSON.stringify(obj)
       const places = this.locationList
-      console.log('Output json bla ' + places)
+      console.log(place)
+      const location = {
+        id: place.place_id,
+        formattedAddress: place.formatted_address,
+        name: place.name,
+      }
+      const docRef = await setDoc(
+        doc(this.db, 'locations', location.id),
+        location
+      )
+      this.locationList.push(location)
     },
+
+    async toggleUnLikePlace(place) {
+      const docRef = await deleteDoc(doc(this.db, 'locations', place.id))
+      this.locationList = this.locationList.filter(
+        (location) => location.id !== place.id
+      )
+    },
+
     loadDetails(placeId) {
       var request = {
         placeId: placeId,
