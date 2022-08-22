@@ -65,7 +65,11 @@
                   </div>
                   <BaseIcon icon="angle-down" class="icon" />
                 </div>
-                <button @click="toggleLikePlace(result)">Like</button>
+                <img
+                  class="bookmark"
+                  @click="toggleLikePlace(result)"
+                  src="../static/img/bookmark(2).png"
+                />
                 <div
                   :id="`${collapseId}-${index}`"
                   class="collapse py-2"
@@ -95,11 +99,27 @@
           </div>
         </div>
 
-        <div>
+        <div class="mt-5 pt-5 px-5 likedPlace">
+          <h3 class="">Bookmarked places</h3>
           <ul>
-            <li v-for="(result, index) in locationList" :key="index">
-              {{ result }}
-              <button @click="toggleUnLikePlace(result)">UNLIKE</button>
+            <li
+              class="likedPlace__list"
+              v-for="(result, index) in locationList"
+              :key="index"
+            >
+              <div>
+                <div>
+                  {{ result.name }}
+                </div>
+                <div>
+                  {{ result.formattedAddress }}
+                </div>
+              </div>
+              <img
+                class="bookmark"
+                @click="toggleUnLikePlace(result)"
+                src="../static/img/bookmark.png"
+              />
             </li>
           </ul>
         </div>
@@ -327,6 +347,7 @@ body {
 .place {
   border-bottom: 1px solid $gray;
   padding-left: 1rem;
+  position: relative;
   &__name {
     font-weight: bold;
     font-size: 1.2rem;
@@ -356,11 +377,43 @@ body {
       }
     }
   }
+
+  .bookmark {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 1.5rem;
+  }
   /* &:hover {
     color: $primary;
   } */
   &::marker {
     /* content: url(../assets/svg/marker.svg); */
+  }
+}
+
+.likedPlace {
+  margin-bottom: 5rem;
+
+  ul {
+    /* padding: 0; */
+  }
+
+  &__list {
+    margin: 2rem 0;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+
+    .bookmark {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
   }
 }
 
