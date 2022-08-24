@@ -39,7 +39,11 @@
           <h3 class="pb-5">Search</h3>
           <label>
             <input type="text" v-model="query" placeholder="e.g. pubs" />
-            <button @click="findPlaces">Search</button>
+            <BaseButton
+              class="search"
+              label="Search"
+              @click="findPlaces"
+            ></BaseButton>
           </label>
         </div>
         <div class="mt-5 px-5">
@@ -109,7 +113,9 @@
             >
               <div>
                 <div>
-                  {{ result.name }}
+                  <strong>
+                    {{ result.name }}
+                  </strong>
                 </div>
                 <div>
                   {{ result.formattedAddress }}
@@ -157,7 +163,6 @@ import {
   deleteDoc,
 } from 'firebase/firestore/lite'
 
-// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -225,9 +230,7 @@ export default {
 
   methods: {
     async toggleLikePlace(place) {
-      //placeJSON = JSON.stringify(obj)
       const places = this.locationList
-      console.log(place)
       const location = {
         id: place.place_id,
         formattedAddress: place.formatted_address,
@@ -257,7 +260,6 @@ export default {
 
       service.getDetails(request, (detail) => {
         this.detail = detail
-        console.log(detail)
       })
     },
     findPlaces() {
@@ -342,6 +344,10 @@ body {
   padding: 1rem 2rem;
   border: none;
   border-radius: 25px;
+
+  &:hover {
+    background-color: $primary;
+  }
 }
 
 .place {
@@ -365,7 +371,6 @@ body {
     }
     .icon {
       transform: rotate(-180deg);
-      /* right: -35rem; */
       color: black;
       transition: 150ms all ease-out;
     }
@@ -384,7 +389,7 @@ body {
     cursor: pointer;
     position: absolute;
     right: 0;
-    bottom: 1.5rem;
+    top: 2rem;
   }
 }
 
